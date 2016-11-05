@@ -1,0 +1,47 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Java template
+*.class
+
+### JetBrains template
+
+# User-specific stuff:
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/*
+AccountDemoQAWorkshop.iml
+
+/out/
+
+### Eclipse template
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.classpath
+
+# Eclipse Core
+.project
+
+### Maven template
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+##Cucumber Template
+test-output/
