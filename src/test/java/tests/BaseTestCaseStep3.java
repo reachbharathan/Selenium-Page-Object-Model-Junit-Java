@@ -10,37 +10,34 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTestCaseStep3 {
 
-    ChromeDriver driver;
+  ChromeDriver driver;
 
-    @Before
-    public void setUp(){
+  @Before
+  public void setUp() {
 
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    driver = new ChromeDriver();
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 //        driver.navigate().to("http://accountsdemo.herokuapp.com/");
 //        driver.findElement(By.id("user_email")).sendKeys("jbalacha@thoughtworks.com");
 //        driver.findElement(By.id("user_password")).sendKeys("vijay!123");
 //        driver.findElement(By.name("commit")).click();
+    LoginPage lp = new LoginPage(driver);
+    lp.navigateToLoginPage("http://accountsdemo.herokuapp.com");
+    lp.login("jbalacha@thoughtworks.com", "vijay!123");
+  }
 
-        LoginPage lp = new LoginPage(driver);
-        lp.navigateToLoginPage("http://accountsdemo.herokuapp.com");
-        lp.login("jbalacha@thoughtworks.com" ,"vijay!123" );
-    }
+  @After
+  public void tearDown() {
 
-    @After
-    public void tearDown(){
+    driver.close();
+    driver.quit();
+  }
 
-        driver.close();
-        driver.quit();
+  protected void selectClient(String client) {
 
-    }
-
-    protected void selectClient(String client) {
-        driver.findElement(By.linkText("CLIENTS")).click();
-        driver.findElement(By.id("search")).sendKeys(client);
-        driver.findElement(By.className("searchBtn")).click();
-        driver.findElement(By.linkText("Select Client")).click();
-    }
-
-
+    driver.findElement(By.linkText("CLIENTS")).click();
+    driver.findElement(By.id("search")).sendKeys(client);
+    driver.findElement(By.className("searchBtn")).click();
+    driver.findElement(By.linkText("Select Client")).click();
+  }
 }
