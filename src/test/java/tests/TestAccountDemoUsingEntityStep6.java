@@ -5,8 +5,9 @@ import entities.QuotationDetails;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import pages.ClientPage;
+import tests.testSiute2.BaseTestStep2PageObject;
 
-public class TestAccountDemoUsingEntityStep6 extends BaseTestCaseUsingPOStep5 {
+public class TestAccountDemoUsingEntityStep6 extends BaseTestStep2PageObject {
 
   @Test
   @Category(Smoke.class)

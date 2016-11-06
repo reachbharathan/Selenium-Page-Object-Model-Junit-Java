@@ -8,12 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by jbalacha on 15/10/15.
  */
-public class ClientsHomePage {
-
-  private WebDriver webDriver;
-
-  @FindBy(linkText = "CLIENTS")
-  private WebElement Clients_link;
+public class ClientsSearchPage extends BasePage {
 
   @FindBy(id = "search")
   private WebElement search_textbox;
@@ -24,18 +19,16 @@ public class ClientsHomePage {
   @FindBy(linkText = "Select Client")
   private WebElement select_client_link;
 
-  public ClientsHomePage(WebDriver webDriver) {
+  public ClientsSearchPage(WebDriver webDriver) {
 
     this.webDriver = webDriver;
     PageFactory.initElements(webDriver, this);
   }
 
-  public ClientPage selectClient(String client) {
+  public void searchAndSelectClient(String client) {
 
-    Clients_link.click();
     search_textbox.sendKeys(client);
     search_button.click();
     select_client_link.click();
-    return new ClientPage(webDriver);
   }
 }

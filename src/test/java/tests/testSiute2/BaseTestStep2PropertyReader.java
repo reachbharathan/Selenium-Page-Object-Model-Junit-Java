@@ -1,4 +1,4 @@
-package tests;
+package tests.testSiute2;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +10,7 @@ import util.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTestCaseWithReadingFromConfigFileStep4 {
+public class BaseTestStep2PropertyReader {
 
   WebDriver driver;
 
@@ -19,12 +19,10 @@ public class BaseTestCaseWithReadingFromConfigFileStep4 {
   @Before
   public void setUp() {
     propertyReader = new PropertyReader();
-    driver = getAppropriateDriver();
+    driver = getDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to(propertyReader.readProperty("url"));
-    driver.findElement(By.id("user_email")).sendKeys(propertyReader.readProperty("username"));
-    driver.findElement(By.id("user_password")).sendKeys(propertyReader.readProperty("password"));
-    driver.findElement(By.name("commit")).click();
+
   }
 
   @After
@@ -33,7 +31,7 @@ public class BaseTestCaseWithReadingFromConfigFileStep4 {
     driver.quit();
   }
 
-  protected WebDriver getAppropriateDriver() {
+  protected WebDriver getDriver() {
 
     String browser = propertyReader.readProperty("browser");
     if (browser.equalsIgnoreCase("chrome")) return new ChromeDriver();
@@ -47,5 +45,11 @@ public class BaseTestCaseWithReadingFromConfigFileStep4 {
     driver.findElement(By.id("search")).sendKeys(client);
     driver.findElement(By.className("searchBtn")).click();
     driver.findElement(By.linkText("Select Client")).click();
+  }
+
+  protected void login() {
+    driver.findElement(By.id("user_email")).sendKeys(propertyReader.readProperty("username"));
+    driver.findElement(By.id("user_password")).sendKeys(propertyReader.readProperty("password"));
+    driver.findElement(By.name("commit")).click();
   }
 }

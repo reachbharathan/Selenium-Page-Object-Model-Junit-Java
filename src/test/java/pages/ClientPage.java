@@ -16,9 +16,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 
-public class ClientPage {
-
-  private WebDriver webDriver;
+public class ClientPage extends BasePage{
 
   @FindBy(linkText = "Edit Client Details")
   private WebElement edit_clients_details_link;
@@ -53,15 +51,6 @@ public class ClientPage {
     PageFactory.initElements(webDriver, this);
   }
 
-  public void editClientDetails(ClientDetails details) {
-
-    edit_clients_details_link.click();
-    client_contact_textbox.clear();
-    client_contact_textbox.sendKeys(details.getContact());
-    client_address_textbox.clear();
-    client_address_textbox.sendKeys(details.getAddress());
-    update_button.click();
-  }
 
   public void verifyClientDetails(ClientDetails details) {
 
@@ -90,6 +79,10 @@ public class ClientPage {
     update_button.click();
   }
 
+  public void editClientDetails(ClientDetails clientDetails) {
+    editClientDetails(clientDetails.getContact(),clientDetails.getAddress());
+  }
+
   public void addQuotation(String client_contact, String address) {
 
     quotations_link.click();
@@ -104,17 +97,7 @@ public class ClientPage {
     webDriver.switchTo().alert().accept();
   }
 
-  public void addQuotation(QuotationDetails qDetails) {
-
-    quotations_link.click();
-    add_new_quotation_link.click();
-    quotation_order_placed_by_textbox.clear();
-    quotation_order_placed_by_textbox.sendKeys(qDetails.getContact());
-    quotation_event_name_textbox.clear();
-    quotation_event_name_textbox.sendKeys(qDetails.getAddress());
-    quotation_event_date_calendar.sendKeys("21-10-2015");
-    update_button.click();
-    Alert alert = new WebDriverWait(webDriver, 10).until(ExpectedConditions.alertIsPresent());
-    webDriver.switchTo().alert().accept();
+  public void addQuotation(QuotationDetails quotationDetails) {
+    addQuotation(quotationDetails.getContact(),quotationDetails.getAddress());
   }
 }

@@ -1,12 +1,16 @@
-package tests;
+package tests.testSuite1;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import tests.testSuite1.BaseTestStep1Simple;
 
-public class AccountDemoTestExtendingBaseTestStep3 extends BaseTestCaseStep3 {
+public class Step3AccountDemo extends BaseTestStep1Simple {
+  //separate the common to base step
+  //have actions only related to steps
 
   @Test
   public void testEditAccount() {
+    login("letslearnandshare@gmail.com","!abcd1234");
     selectClient("tcs");
     driver.findElement(By.linkText("Edit Client Details")).click();
     driver.findElement(By.id("client_contact_person_name")).clear();
@@ -17,6 +21,7 @@ public class AccountDemoTestExtendingBaseTestStep3 extends BaseTestCaseStep3 {
 
   @Test
   public void testAddQuotationForClient() {
+    login("letslearnandshare@gmail.com","!abcd1234");
     selectClient("tcs");
     driver.findElement(By.linkText("Quotations")).click();
     driver.findElement(By.partialLinkText("Add New Quotation")).click();

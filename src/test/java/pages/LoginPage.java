@@ -8,9 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by jbalacha on 15/10/15.
  */
-public class LoginPage {
-
-  private WebDriver webDriver;
+public class LoginPage extends BasePage{
 
   @FindBy(id = "user_email")
   private WebElement user_name_field;
@@ -27,17 +25,11 @@ public class LoginPage {
     PageFactory.initElements(webDriver, this);
   }
 
-  public void navigateToLoginPage(String url) {
+  public void login(String username, String password) {
 
-    webDriver.navigate().to(url);
-  }
-
-  public ClientsHomePage login(String username, String password) {
 
     user_name_field.sendKeys(username);
     password_field.sendKeys(password);
     login.click();
-    ClientsHomePage clientsHomePage = new ClientsHomePage(webDriver);
-    return clientsHomePage;
   }
 }

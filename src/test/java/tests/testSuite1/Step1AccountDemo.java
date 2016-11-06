@@ -1,4 +1,4 @@
-package tests;
+package tests.testSuite1;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -6,8 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class AccountDemoTestStep1 {
-//with code duplication , implicit wait etc.. just the starting point
+public class Step1AccountDemo {
+  // Code duplication
+  // Lengthy
+  // Hard to maintain
+
 
   @Test
   public void testEditAccount() {
@@ -15,8 +18,8 @@ public class AccountDemoTestStep1 {
     ChromeDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to("http://accountsdemo.herokuapp.com/");
-    driver.findElement(By.id("user_email")).sendKeys("jbalacha@thoughtworks.com");
-    driver.findElement(By.id("user_password")).sendKeys("vijay!123");
+    driver.findElement(By.id("user_email")).sendKeys("letslearnandshare@gmail.com");
+    driver.findElement(By.id("user_password")).sendKeys("!abcd1234");
     driver.findElement(By.name("commit")).click();
     driver.findElement(By.linkText("CLIENTS")).click();
     driver.findElement(By.id("search")).sendKeys("tcs");
@@ -35,7 +38,7 @@ public class AccountDemoTestStep1 {
     ChromeDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to("http://accountsdemo.herokuapp.com/");
-    driver.findElement(By.id("user_email")).sendKeys("jbalacha@thoughtworks.com");
+    driver.findElement(By.id("user_email")).sendKeys("letslearnandshare@gmail.com");
     driver.findElement(By.id("user_password")).sendKeys("vijay!123");
     driver.findElement(By.name("commit")).click();
     driver.findElement(By.linkText("CLIENTS")).click();

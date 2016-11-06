@@ -5,9 +5,10 @@ import entities.QuotationDetails;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import pages.ClientPage;
+import tests.testSiute2.BaseTestStep2PageObject;
 import workflows.ClientWorkflows;
 
-public class TestAccountDemoUsingWorkFlowsStep7 extends BaseTestCaseUsingPOStep5 {
+public class TestAccountDemoUsingWorkFlowsStep7 extends BaseTestStep2PageObject {
 
   ClientWorkflows clientWorkflows = new ClientWorkflows(driver);
 

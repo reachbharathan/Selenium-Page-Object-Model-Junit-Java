@@ -1,13 +1,12 @@
-package tests;
+package tests.testSiute2;
 
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 import org.openqa.selenium.By;
+import tests.testSiute2.BaseTestStep2PageObject;
 
-public class PaymentTestExtendingBaseTestReadingFromConfigFileStep4 extends BaseTestCaseUsingPOStep5 {
+public class Step2PomAccountDemo extends BaseTestStep2PageObject {
 
   @Test
-  @Category(Regression.class)
   public void testPaymentForAClient() {
     clientsHomePage.selectClient("tcs");
     driver.findElement(By.linkText("Payments")).click();

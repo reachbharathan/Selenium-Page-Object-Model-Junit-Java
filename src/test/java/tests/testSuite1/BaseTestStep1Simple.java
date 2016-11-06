@@ -1,4 +1,4 @@
-package tests;
+package tests.testSuite1;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,7 +8,7 @@ import pages.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTestCaseStep3 {
+public class BaseTestStep1Simple {
 
   ChromeDriver driver;
 
@@ -16,19 +16,19 @@ public class BaseTestCaseStep3 {
   public void setUp() {
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//        driver.navigate().to("http://accountsdemo.herokuapp.com/");
-//        driver.findElement(By.id("user_email")).sendKeys("jbalacha@thoughtworks.com");
-//        driver.findElement(By.id("user_password")).sendKeys("vijay!123");
-//        driver.findElement(By.name("commit")).click();
-    LoginPage lp = new LoginPage(driver);
-    lp.navigateToLoginPage("http://accountsdemo.herokuapp.com");
-    lp.login("jbalacha@thoughtworks.com", "vijay!123");
+    driver.navigate().to("http://accountsdemo.herokuapp.com");
   }
 
   @After
   public void tearDown() {
     driver.close();
     driver.quit();
+  }
+
+  protected void login(String userName,String password) {
+    driver.findElement(By.id("user_email")).sendKeys(userName);
+    driver.findElement(By.id("user_password")).sendKeys(password);
+    driver.findElement(By.name("commit")).click();
   }
 
   protected void selectClient(String client) {

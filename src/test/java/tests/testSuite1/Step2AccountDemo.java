@@ -1,4 +1,4 @@
-package tests;
+package tests.testSuite1;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,7 +8,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class AccountDemoTestSetUpAndTearDownStep2 {
+public class Step2AccountDemo {
+  //gropu out the common
+  //inititalize or declare at class leve
+  //separate the common before and after actions
 
   ChromeDriver driver;
 
@@ -17,13 +20,14 @@ public class AccountDemoTestSetUpAndTearDownStep2 {
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to("http://accountsdemo.herokuapp.com/");
-    driver.findElement(By.id("user_email")).sendKeys("jbalacha@thoughtworks.com");
-    driver.findElement(By.id("user_password")).sendKeys("vijay!123");
+    driver.findElement(By.id("user_email")).sendKeys("letslearnandshare@gmail.com");
+    driver.findElement(By.id("user_password")).sendKeys("!abcd1234");
     driver.findElement(By.name("commit")).click();
   }
 
   @Test
   public void testEditAccount() {
+    login("letslearnandshare@gmail.com","!abcd1234");
     selectClient("tcs");
     driver.findElement(By.linkText("Edit Client Details")).click();
     driver.findElement(By.id("client_contact_person_name")).clear();
@@ -32,16 +36,10 @@ public class AccountDemoTestSetUpAndTearDownStep2 {
     driver.findElement(By.name("commit")).click();
   }
 
-  private void selectClient(String client) {
-
-    driver.findElement(By.linkText("CLIENTS")).click();
-    driver.findElement(By.id("search")).sendKeys(client);
-    driver.findElement(By.className("searchBtn")).click();
-    driver.findElement(By.linkText("Select Client")).click();
-  }
 
   @Test
   public void testAddQuotationForClient() {
+    login("letslearnandshare@gmail.com","!abcd1234");
     selectClient("tcs");
     driver.findElement(By.linkText("Quotations")).click();
     driver.findElement(By.partialLinkText("Add New Quotation")).click();
@@ -54,5 +52,18 @@ public class AccountDemoTestSetUpAndTearDownStep2 {
   public void tearDown() {
     driver.close();
     driver.quit();
+  }
+
+  private void selectClient(String client) {
+    driver.findElement(By.linkText("CLIENTS")).click();
+    driver.findElement(By.id("search")).sendKeys(client);
+    driver.findElement(By.className("searchBtn")).click();
+    driver.findElement(By.linkText("Select Client")).click();
+  }
+
+  protected void login(String userName, String password) {
+    driver.findElement(By.id("user_email")).sendKeys(userName);
+    driver.findElement(By.id("user_password")).sendKeys(password);
+    driver.findElement(By.name("commit")).click();
   }
 }
