@@ -17,7 +17,6 @@ public class PropertyReader {
   }
 
   private void loadProperties() {
-
     try {
       inputStream = new FileInputStream("src/config.properties");
       properties.load(inputStream);

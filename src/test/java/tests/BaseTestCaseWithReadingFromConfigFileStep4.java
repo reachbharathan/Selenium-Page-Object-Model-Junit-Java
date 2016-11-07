@@ -18,7 +18,6 @@ public class BaseTestCaseWithReadingFromConfigFileStep4 {
 
   @Before
   public void setUp() {
-
     propertyReader = new PropertyReader();
     driver = getAppropriateDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -30,7 +29,6 @@ public class BaseTestCaseWithReadingFromConfigFileStep4 {
 
   @After
   public void tearDown() {
-
     driver.close();
     driver.quit();
   }

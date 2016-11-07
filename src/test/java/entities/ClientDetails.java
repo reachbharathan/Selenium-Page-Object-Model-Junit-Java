@@ -7,7 +7,6 @@ public class ClientDetails {
   private String address;
 
   public ClientDetails(String contact, String address) {
-
     this.contact = contact;
     this.address = address;
   }

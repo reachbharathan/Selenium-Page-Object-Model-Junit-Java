@@ -20,7 +20,6 @@ public class TestAccountDemoUsingEntityStep6 extends BaseTestCaseUsingPOStep5 {
   @Test
   @Category(Smoke.class)
   public void testAddQuotationForClient() {
-
     ClientPage clientPage = clientsHomePage.selectClient("tcs");
     QuotationDetails qDetails = new QuotationDetails("Mr.Raju", "Nasscom Product Conclave");
     clientPage.addQuotation(qDetails);

@@ -16,7 +16,6 @@ public class ExecutionListener extends RunListener {
    * Called when an atomic test fails.
    */
   public void testFailure(Failure failure) throws java.lang.Exception {
-
     System.out.println("Execution Listener : Test case failed : " + failure.getDescription().getMethodName());
   }
 }

@@ -14,7 +14,6 @@ public class BaseTestCaseStep3 {
 
   @Before
   public void setUp() {
-
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 //        driver.navigate().to("http://accountsdemo.herokuapp.com/");
@@ -28,7 +27,6 @@ public class BaseTestCaseStep3 {
 
   @After
   public void tearDown() {
-
     driver.close();
     driver.quit();
   }

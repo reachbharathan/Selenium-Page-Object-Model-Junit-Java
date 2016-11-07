@@ -11,7 +11,6 @@ public class PaymentTestSetUpAndTearDownStep2 {
 
   @Test
   public void testPaymentForAClient() {
-
     selectClient("tcs");
     driver.findElement(By.linkText("Payments")).click();
     driver.findElement(By.partialLinkText("Add New Payment")).click();
@@ -29,7 +28,6 @@ public class PaymentTestSetUpAndTearDownStep2 {
 
   @After
   public void tearDown() {
-
     driver.close();
     driver.quit();
   }

@@ -14,7 +14,6 @@ public class AccountDemoTestSetUpAndTearDownStep2 {
 
   @Before
   public void setUp() {
-
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to("http://accountsdemo.herokuapp.com/");
@@ -25,7 +24,6 @@ public class AccountDemoTestSetUpAndTearDownStep2 {
 
   @Test
   public void testEditAccount() {
-
     selectClient("tcs");
     driver.findElement(By.linkText("Edit Client Details")).click();
     driver.findElement(By.id("client_contact_person_name")).clear();
@@ -44,7 +42,6 @@ public class AccountDemoTestSetUpAndTearDownStep2 {
 
   @Test
   public void testAddQuotationForClient() {
-
     selectClient("tcs");
     driver.findElement(By.linkText("Quotations")).click();
     driver.findElement(By.partialLinkText("Add New Quotation")).click();
@@ -55,7 +52,6 @@ public class AccountDemoTestSetUpAndTearDownStep2 {
 
   @After
   public void tearDown() {
-
     driver.close();
     driver.quit();
   }

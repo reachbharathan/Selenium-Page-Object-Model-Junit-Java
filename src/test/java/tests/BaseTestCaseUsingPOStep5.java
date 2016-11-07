@@ -37,7 +37,6 @@ public class BaseTestCaseUsingPOStep5 {
   }
 
   public void setAppropriateDriver() {
-
     String browser = propertyReader.readProperty("browser");
     if (browser.equalsIgnoreCase("chrome")) {
       driver = new ChromeDriver();

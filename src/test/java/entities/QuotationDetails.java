@@ -7,7 +7,6 @@ public class QuotationDetails {
   private String address;
 
   public QuotationDetails(String contact, String address) {
-
     this.contact = contact;
     this.address = address;
   }

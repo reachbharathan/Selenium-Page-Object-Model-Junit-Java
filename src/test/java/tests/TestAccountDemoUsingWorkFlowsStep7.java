@@ -23,7 +23,6 @@ public class TestAccountDemoUsingWorkFlowsStep7 extends BaseTestCaseUsingPOStep5
   @Test
   @Category(Smoke.class)
   public void testAddQuotationForClient() {
-
     ClientPage clientPage = clientsHomePage.selectClient("tcs");
     QuotationDetails qDetails = new QuotationDetails("Mr.Raju", "Nasscom Product Conclave");
     clientPage.addQuotation(qDetails);
@@ -32,7 +31,6 @@ public class TestAccountDemoUsingWorkFlowsStep7 extends BaseTestCaseUsingPOStep5
   @Test
   @Category(Smoke.class)
   public void UpdateClientAndAddQuotation() {
-
     String clientName = "tcs";
     ClientDetails clientDetails = new ClientDetails("Jaggu", "Mantri Woodlands , near Arakere gate");
     clientWorkflows.editClient(clientName, clientDetails);

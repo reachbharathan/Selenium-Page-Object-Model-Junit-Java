@@ -9,7 +9,6 @@ public class PaymentTestExtendingBaseTestReadingFromConfigFileStep4 extends Base
   @Test
   @Category(Regression.class)
   public void testPaymentForAClient() {
-
     clientsHomePage.selectClient("tcs");
     driver.findElement(By.linkText("Payments")).click();
     driver.findElement(By.partialLinkText("Add New Payment")).click();

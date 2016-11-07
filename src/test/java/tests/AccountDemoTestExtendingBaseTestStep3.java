@@ -7,7 +7,6 @@ public class AccountDemoTestExtendingBaseTestStep3 extends BaseTestCaseStep3 {
 
   @Test
   public void testEditAccount() {
-
     selectClient("tcs");
     driver.findElement(By.linkText("Edit Client Details")).click();
     driver.findElement(By.id("client_contact_person_name")).clear();
@@ -18,7 +17,6 @@ public class AccountDemoTestExtendingBaseTestStep3 extends BaseTestCaseStep3 {
 
   @Test
   public void testAddQuotationForClient() {
-
     selectClient("tcs");
     driver.findElement(By.linkText("Quotations")).click();
     driver.findElement(By.partialLinkText("Add New Quotation")).click();
