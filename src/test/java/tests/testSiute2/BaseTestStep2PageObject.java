@@ -1,11 +1,15 @@
 package tests.testSiute2;
 
+import com.thoughtworks.selenium.SeleniumException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import pages.ClientPage;
 import pages.ClientsSearchPage;
 import pages.HomePage;
@@ -35,19 +39,22 @@ public class BaseTestStep2PageObject {
 
   protected ClientsSearchPage clientSearchPage;
 
+  private static final Logger LOGGER = LogManager.getLogger(BaseTestStep2PageObject.class);
+
   public BaseTestStep2PageObject() {
     screenShotRule = new ScreenShotRule();
     propertyReader = new PropertyReader();
+    setDriver();
     screenShotRule.setDriver(driver);
     loginPage = new LoginPage(driver);
     homePage = new HomePage(driver);
     clientPage = new ClientPage(driver);
     clientSearchPage = new ClientsSearchPage(driver);
+    LOGGER.info("BaseTestStep2PageObject completed");
   }
 
   @Before
   public void setUp() {
-    setDriver();
     loadUrl();
   }
 
@@ -59,11 +66,18 @@ public class BaseTestStep2PageObject {
 
   public void setDriver() {
     String browser = propertyReader.readProperty("browser");
-    if (browser.equalsIgnoreCase("chrome")) {
-      driver = new ChromeDriver();
-    }
-    if (browser.equalsIgnoreCase("firefox")) {
-      driver = new FirefoxDriver();
+    switch (browser){
+      case "chrome":
+        driver = new ChromeDriver();
+        break;
+      case "ie":
+        driver = new InternetExplorerDriver();
+        break;
+      case "firefox":
+        driver = new FirefoxDriver();
+        break;
+      default:
+        throw new SeleniumException("Invalid browser");
     }
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.manage().window().maximize();

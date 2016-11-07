@@ -29,7 +29,6 @@ public class ScreenShotRule extends TestWatcher {
   @Override
   protected void finished(Description description) {
 
-    driver.close();
     System.out.println("Screenshot Rule : Test case finished:" + description.getMethodName());
   }
 
