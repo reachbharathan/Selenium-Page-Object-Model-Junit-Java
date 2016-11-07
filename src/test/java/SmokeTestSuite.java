@@ -1,13 +1,12 @@
 import org.junit.experimental.categories.Categories;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import tests.testSiute2.Step2PomAccountDemo;
 import tests.Smoke;
-import tests.TestAccountDemoUsingEntityStep6;
+import tests.testSiute2.Step2PomAccountDemoEntityApproach;
 
 @RunWith(Categories.class)
 @Categories.IncludeCategory(Smoke.class)
-@Suite.SuiteClasses({Step2PomAccountDemo.class, TestAccountDemoUsingEntityStep6.class})
+@Suite.SuiteClasses({Step2PomAccountDemoEntityApproach.class})
 public class SmokeTestSuite {
 
 }

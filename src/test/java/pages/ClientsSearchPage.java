@@ -17,7 +17,7 @@ public class ClientsSearchPage extends BasePage {
   private WebElement search_button;
 
   @FindBy(linkText = "Select Client")
-  private WebElement select_client_link;
+  private WebElement select_first_client_link;
 
   public ClientsSearchPage(WebDriver webDriver) {
 
@@ -25,10 +25,10 @@ public class ClientsSearchPage extends BasePage {
     PageFactory.initElements(webDriver, this);
   }
 
-  public void searchAndSelectClient(String client) {
+  public void searchAndSelectFirstClient(String client) {
 
     search_textbox.sendKeys(client);
     search_button.click();
-    select_client_link.click();
+    select_first_client_link.click();
   }
 }

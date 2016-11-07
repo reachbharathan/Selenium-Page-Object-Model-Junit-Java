@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTestStep2PageObject {
 
-  static PropertyReader propertyReader;
+  protected static PropertyReader propertyReader;
 
   @Rule
   public ScreenShotRule screenShotRule;
