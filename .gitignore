@@ -44,3 +44,6 @@ buildNumber.properties
 
 ##Cucumber Template
 test-output/
+
+##kdiff3
+*.orig
