@@ -12,12 +12,10 @@ public class ClientDetails {
   }
 
   public String getContact() {
-
     return contact;
   }
 
   public String getAddress() {
-
     return address;
   }
 }

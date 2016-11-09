@@ -24,22 +24,15 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTestStep2PageObject {
 
+  private static final Logger LOGGER = LogManager.getLogger(BaseTestStep2PageObject.class);
   protected static PropertyReader propertyReader;
-
   @Rule
   public ScreenShotRule screenShotRule;
-
   protected WebDriver driver;
-
   protected LoginPage loginPage;
-
   protected HomePage homePage;
-
   protected ClientPage clientPage;
-
   protected ClientsSearchPage clientSearchPage;
-
-  private static final Logger LOGGER = LogManager.getLogger(BaseTestStep2PageObject.class);
 
   public BaseTestStep2PageObject() {
     screenShotRule = new ScreenShotRule();
@@ -66,7 +59,7 @@ public class BaseTestStep2PageObject {
 
   public void setDriver() {
     String browser = propertyReader.readProperty("browser");
-    switch (browser){
+    switch (browser) {
       case "chrome":
         driver = new ChromeDriver();
         break;

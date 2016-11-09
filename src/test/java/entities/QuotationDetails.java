@@ -12,12 +12,10 @@ public class QuotationDetails {
   }
 
   public String getContact() {
-
     return contact;
   }
 
   public String getAddress() {
-
     return address;
   }
 }

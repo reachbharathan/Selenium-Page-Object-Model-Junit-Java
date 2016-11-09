@@ -11,10 +11,8 @@ public class Step1AccountDemo {
   // Lengthy
   // Hard to maintain
 
-
   @Test
   public void testEditAccount() {
-
     ChromeDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to("http://accountsdemo.herokuapp.com/");
@@ -34,7 +32,6 @@ public class Step1AccountDemo {
 
   @Test
   public void testAddQuotationForClient() {
-
     ChromeDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to("http://accountsdemo.herokuapp.com/");
