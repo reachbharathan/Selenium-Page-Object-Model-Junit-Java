@@ -8,6 +8,7 @@ public class ExecutionListener extends RunListener {
 
   @Override
   public void testFinished(Description description) throws Exception {
+
     System.out.println("ExecutionListener : Test " + description.getMethodName() + " completed");
   }
 

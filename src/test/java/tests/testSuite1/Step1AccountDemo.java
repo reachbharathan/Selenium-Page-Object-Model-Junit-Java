@@ -11,8 +11,10 @@ public class Step1AccountDemo {
   // Lengthy
   // Hard to maintain
 
-  @Test
+
+//  @Test
   public void testEditAccount() {
+
     ChromeDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to("http://accountsdemo.herokuapp.com/");
@@ -32,11 +34,12 @@ public class Step1AccountDemo {
 
   @Test
   public void testAddQuotationForClient() {
+
     ChromeDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to("http://accountsdemo.herokuapp.com/");
     driver.findElement(By.id("user_email")).sendKeys("letslearnandshare@gmail.com");
-    driver.findElement(By.id("user_password")).sendKeys("vijay!123");
+    driver.findElement(By.id("user_password")).sendKeys("!abcd1234");
     driver.findElement(By.name("commit")).click();
     driver.findElement(By.linkText("CLIENTS")).click();
     driver.findElement(By.id("search")).sendKeys("tcs");

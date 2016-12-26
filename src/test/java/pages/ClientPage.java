@@ -16,7 +16,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 
-public class ClientPage extends BasePage {
+public class ClientPage extends BasePage{
 
   @FindBy(linkText = "Edit Client Details")
   private WebElement edit_clients_details_link;
@@ -46,11 +46,14 @@ public class ClientPage extends BasePage {
   private WebElement quotation_event_date_calendar;
 
   public ClientPage(WebDriver webDriver) {
+
     this.webDriver = webDriver;
     PageFactory.initElements(webDriver, this);
   }
 
+
   public void verifyClientDetails(ClientDetails details) {
+
     List<WebElement> rows = webDriver.findElement(By.className("table-bordered")).findElements(By.tagName("tr"));
     for (Iterator<WebElement> iterator = rows.iterator(); iterator.hasNext(); ) {
       WebElement row = iterator.next();
@@ -67,6 +70,7 @@ public class ClientPage extends BasePage {
   }
 
   public void editClientDetails(String contact, String address) {
+
     edit_clients_details_link.click();
     client_contact_textbox.clear();
     client_contact_textbox.sendKeys(contact);
@@ -76,10 +80,11 @@ public class ClientPage extends BasePage {
   }
 
   public void editClientDetails(ClientDetails clientDetails) {
-    editClientDetails(clientDetails.getContact(), clientDetails.getAddress());
+    editClientDetails(clientDetails.getContact(),clientDetails.getAddress());
   }
 
   public void addQuotation(String client_contact, String address) {
+
     quotations_link.click();
     add_new_quotation_link.click();
     quotation_order_placed_by_textbox.clear();
@@ -93,6 +98,6 @@ public class ClientPage extends BasePage {
   }
 
   public void addQuotation(QuotationDetails quotationDetails) {
-    addQuotation(quotationDetails.getContact(), quotationDetails.getAddress());
+    addQuotation(quotationDetails.getContact(),quotationDetails.getAddress());
   }
 }

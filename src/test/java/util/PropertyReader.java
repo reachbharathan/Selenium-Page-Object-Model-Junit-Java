@@ -12,6 +12,7 @@ public class PropertyReader {
   InputStream inputStream = null;
 
   public PropertyReader() {
+
     loadProperties();
   }
 
@@ -26,6 +27,7 @@ public class PropertyReader {
   }
 
   public String readProperty(String key) {
+
     return properties.getProperty(key);
   }
 }

@@ -29,4 +29,10 @@ public class LoginPage extends BasePage {
     password_field.sendKeys(password);
     login.click();
   }
+
+  public void login() {
+    user_name_field.sendKeys();
+    password_field.sendKeys();
+    login.click();
+  }
 }

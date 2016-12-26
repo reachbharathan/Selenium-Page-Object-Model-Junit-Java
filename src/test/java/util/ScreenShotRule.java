@@ -16,6 +16,7 @@ public class ScreenShotRule extends TestWatcher {
 
   @Override
   protected void failed(Throwable e, Description description) {
+
     File scrFile = ( (TakesScreenshot) driver ).getScreenshotAs(OutputType.FILE);
     try {
       FileUtils.copyFile(scrFile, new File(description.getMethodName() + ".png"));
@@ -27,15 +28,18 @@ public class ScreenShotRule extends TestWatcher {
 
   @Override
   protected void finished(Description description) {
+
     System.out.println("Screenshot Rule : Test case finished:" + description.getMethodName());
   }
 
   @Override
   protected void succeeded(Description description) {
+
     System.out.println("This test has succeeded");
   }
 
   public void setDriver(WebDriver driver) {
+
     this.driver = driver;
   }
 }

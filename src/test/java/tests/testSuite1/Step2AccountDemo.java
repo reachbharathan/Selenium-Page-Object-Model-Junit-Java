@@ -27,7 +27,7 @@ public class Step2AccountDemo {
 
   @Test
   public void testEditAccount() {
-    login("letslearnandshare@gmail.com", "!abcd1234");
+    login("letslearnandshare@gmail.com","!abcd1234");
     selectClient("tcs");
     driver.findElement(By.linkText("Edit Client Details")).click();
     driver.findElement(By.id("client_contact_person_name")).clear();
@@ -36,9 +36,10 @@ public class Step2AccountDemo {
     driver.findElement(By.name("commit")).click();
   }
 
+
   @Test
   public void testAddQuotationForClient() {
-    login("letslearnandshare@gmail.com", "!abcd1234");
+    login("letslearnandshare@gmail.com","!abcd1234");
     selectClient("tcs");
     driver.findElement(By.linkText("Quotations")).click();
     driver.findElement(By.partialLinkText("Add New Quotation")).click();

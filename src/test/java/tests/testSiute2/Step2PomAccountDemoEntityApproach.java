@@ -4,8 +4,10 @@ import entities.ClientDetails;
 import entities.QuotationDetails;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import pages.ClientPage;
 import tests.Regression;
 import tests.Smoke;
+import tests.testSiute2.BaseTestStep2PageObject;
 
 public class Step2PomAccountDemoEntityApproach extends BaseTestStep2PageObject {
 
