@@ -22,32 +22,33 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTestStep2PageObject {
+public class BaseTestStep4 {
 
-  private static final Logger LOGGER = LogManager.getLogger(BaseTestStep2PageObject.class);
-  protected static PropertyReader propertyReader;
+  public static PropertyReader propertyReader;
+  private static Logger LOGGER = null;
   @Rule
   public ScreenShotRule screenShotRule;
-  protected WebDriver driver;
-  protected LoginPage loginPage;
-  protected HomePage homePage;
-  protected ClientPage clientPage;
-  protected ClientsSearchPage clientSearchPage;
+  public WebDriver driver;
+  public LoginPage loginPage;
+  public HomePage homePage;
+  public ClientPage clientPage;
+  public ClientsSearchPage clientSearchPage;
 
-  public BaseTestStep2PageObject() {
+  public BaseTestStep4() {
     screenShotRule = new ScreenShotRule();
     propertyReader = new PropertyReader();
+    LOGGER = LogManager.getLogger(BaseTestStep4.class);
+    LOGGER.info("BaseTestStep4 completed");
+  }
+
+  @Before
+  public void setUp() {
     setDriver();
     screenShotRule.setDriver(driver);
     loginPage = new LoginPage(driver);
     homePage = new HomePage(driver);
     clientPage = new ClientPage(driver);
     clientSearchPage = new ClientsSearchPage(driver);
-    LOGGER.info("BaseTestStep2PageObject completed");
-  }
-
-  @Before
-  public void setUp() {
     loadUrl();
   }
 
@@ -59,6 +60,7 @@ public class BaseTestStep2PageObject {
 
   public void setDriver() {
     String browser = propertyReader.readProperty("browser");
+    long implicitWait = Integer.parseInt(propertyReader.readProperty("implicitWaitInSeconds"));
     switch (browser) {
       case "chrome":
         driver = new ChromeDriver();
@@ -72,23 +74,25 @@ public class BaseTestStep2PageObject {
       default:
         throw new WebDriverException();
     }
-    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
     driver.manage().window().maximize();
   }
 
   public void loadUrl() {
+    URL baseUrl;
+    HttpURLConnection connection = null;
     try {
-      URL baseUrl = new URL(propertyReader.readProperty("url"));
-      HttpURLConnection connection = (HttpURLConnection) baseUrl.openConnection();
+      baseUrl = new URL(propertyReader.readProperty("url"));
+      connection = (HttpURLConnection) baseUrl.openConnection();
       connection.connect();
       if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-        System.out.println("Unable to make url connection");
-        System.out.println("Response Code " + connection.getResponseCode());
-        System.out.println("Response Code " + connection.getResponseMessage());
+        LOGGER.error("Unable to make url connection");
+        LOGGER.error("Response Code " + connection.getResponseCode());
+        LOGGER.error("Response Message " + connection.getResponseMessage());
       }
       driver.get(propertyReader.readProperty("url"));
     } catch (IOException e) {
-      System.out.println("Unable to make url connection");
+      LOGGER.error("URL connection error");
       e.printStackTrace();
     }
   }

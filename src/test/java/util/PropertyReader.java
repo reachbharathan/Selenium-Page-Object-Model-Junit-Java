@@ -7,12 +7,12 @@ import java.util.Properties;
 
 public class PropertyReader {
 
-  Properties properties = new Properties();
+  Properties properties;
 
   InputStream inputStream = null;
 
   public PropertyReader() {
-
+    properties = new Properties();
     loadProperties();
   }
 
@@ -21,13 +21,12 @@ public class PropertyReader {
       inputStream = new FileInputStream("src/config.properties");
       properties.load(inputStream);
     } catch (IOException e) {
+      System.out.print("Unable to load config.properties");
       e.printStackTrace();
-      System.exit(1);
     }
   }
 
   public String readProperty(String key) {
-
     return properties.getProperty(key);
   }
 }

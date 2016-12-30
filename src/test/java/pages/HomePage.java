@@ -5,9 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-/**
- * Created by jbalacha on 15/10/15.
- */
 public class HomePage extends BasePage {
 
   @FindBy(linkText = "CLIENTS")

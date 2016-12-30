@@ -4,12 +4,10 @@ import entities.ClientDetails;
 import entities.QuotationDetails;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import pages.ClientPage;
 import tests.Regression;
 import tests.Smoke;
-import tests.testSiute2.BaseTestStep2PageObject;
 
-public class Step2PomAccountDemoEntityApproach extends BaseTestStep2PageObject {
+public class Step5PomAccountDemoEntityApproach extends BaseTestStep4 {
 
   @Test
   //Adding category
@@ -28,7 +26,7 @@ public class Step2PomAccountDemoEntityApproach extends BaseTestStep2PageObject {
   @Test
   @Category(Regression.class)
   public void testAddQuotationForClient() {
-    QuotationDetails quotationDetails1 = new QuotationDetails("Mr.Raju", "Nasscom Product Conclave");
+    QuotationDetails quotationDetails1 = new QuotationDetails("Mr.Raju", "Nasscom Product Conclave", "30-12-2016");
     loginPage.login(propertyReader.readProperty("username"), propertyReader.readProperty("password"));
     homePage.selectClientsLink();
     clientSearchPage.searchAndSelectFirstClient("Thoughtworks");

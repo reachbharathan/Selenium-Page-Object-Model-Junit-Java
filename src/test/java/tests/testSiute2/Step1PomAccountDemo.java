@@ -1,26 +1,22 @@
 package tests.testSiute2;
 
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Step1PomAccountDemo extends BaseTestStep2PageObject {
-
-  ChromeDriver driver;
+public class Step1PomAccountDemo extends BaseTestStep4 {
 
   @Test
   public void testEditAccount() {
     loginPage.login(propertyReader.readProperty("username"), propertyReader.readProperty("password"));
     homePage.selectClientsLink();
     clientSearchPage.searchAndSelectFirstClient("Thoughtworks");
-    clientPage.editClientDetails("Jaggu","Mantri Woodlands , near Arakere gate");
+    clientPage.editClientDetails("ThoughtworksNew", "twAddressNew");
   }
 
   @Test
-  public void testAddQuotationForClient(){
+  public void testAddQuotationForClient() {
     loginPage.login(propertyReader.readProperty("username"), propertyReader.readProperty("password"));
     homePage.selectClientsLink();
     clientSearchPage.searchAndSelectFirstClient("Thoughtworks");
-    clientPage.addQuotation("Mr.Raju","Nasscom Product Conclave");
+    clientPage.addQuotation("Quotation1", "Event1", "01-3-2017");
   }
 }

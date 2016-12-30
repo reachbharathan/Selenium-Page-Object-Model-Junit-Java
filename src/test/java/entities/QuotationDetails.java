@@ -3,12 +3,13 @@ package entities;
 public class QuotationDetails {
 
   private String contact;
-
   private String address;
+  private String eventDate;
 
-  public QuotationDetails(String contact, String address) {
+  public QuotationDetails(String contact, String address, String eventDate) {
     this.contact = contact;
     this.address = address;
+    this.eventDate = eventDate;
   }
 
   public String getContact() {
@@ -17,5 +18,9 @@ public class QuotationDetails {
 
   public String getAddress() {
     return address;
+  }
+
+  public String getEventDate() {
+    return eventDate;
   }
 }

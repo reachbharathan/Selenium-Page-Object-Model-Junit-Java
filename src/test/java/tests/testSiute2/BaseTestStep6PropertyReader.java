@@ -10,7 +10,7 @@ import util.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTestStep2PropertyReader {
+public class BaseTestStep6PropertyReader {
 
   WebDriver driver;
 
