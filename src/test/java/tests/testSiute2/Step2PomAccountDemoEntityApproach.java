@@ -21,7 +21,7 @@ public class Step2PomAccountDemoEntityApproach extends BaseTestStep2PageObject {
     ClientDetails clientDetails1 = new ClientDetails("Jaggu", "Mantri Woodlands , near Arakere gate");
     loginPage.login(propertyReader.readProperty("username"), propertyReader.readProperty("password"));
     homePage.selectClientsLink();
-    clientSearchPage.searchAndSelectFirstClient("tcs");
+    clientSearchPage.searchAndSelectFirstClient("Thoughtworks");
     clientPage.editClientDetails(clientDetails1);
   }
 
@@ -31,7 +31,7 @@ public class Step2PomAccountDemoEntityApproach extends BaseTestStep2PageObject {
     QuotationDetails quotationDetails1 = new QuotationDetails("Mr.Raju", "Nasscom Product Conclave");
     loginPage.login(propertyReader.readProperty("username"), propertyReader.readProperty("password"));
     homePage.selectClientsLink();
-    clientSearchPage.searchAndSelectFirstClient("tcs");
+    clientSearchPage.searchAndSelectFirstClient("Thoughtworks");
     clientPage.addQuotation(quotationDetails1);
   }
 }

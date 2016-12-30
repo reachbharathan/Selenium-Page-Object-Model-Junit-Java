@@ -7,8 +7,4 @@ public class BasePage {
 
   public WebDriver webDriver;
   protected static PropertyReader propertyReader;
-
-  public void navigateToLoginPage(String url) {
-    webDriver.navigate().to(url);
-  }
 }

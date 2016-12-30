@@ -1,9 +1,9 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by jbalacha on 15/10/15.
@@ -16,7 +16,7 @@ public class ClientsSearchPage extends BasePage {
   @FindBy(className = "searchBtn")
   private WebElement search_button;
 
-  @FindBy(linkText = ""+ Add New Client"")
+  @FindBy(partialLinkText = "Add New Client")
   private WebElement select_first_client_link;
 
   public ClientsSearchPage(WebDriver webDriver) {

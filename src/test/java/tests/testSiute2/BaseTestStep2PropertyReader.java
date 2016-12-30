@@ -44,7 +44,7 @@ public class BaseTestStep2PropertyReader {
     driver.findElement(By.linkText("CLIENTS")).click();
     driver.findElement(By.id("search")).sendKeys(client);
     driver.findElement(By.className("searchBtn")).click();
-    driver.findElement(By.linkText(""+ Add New Client"")).click();
+    driver.findElement(By.linkText("Add New Client")).click();
   }
 
   protected void login() {

@@ -12,7 +12,7 @@ public class Step1PomAccountDemo extends BaseTestStep2PageObject {
   public void testEditAccount() {
     loginPage.login(propertyReader.readProperty("username"), propertyReader.readProperty("password"));
     homePage.selectClientsLink();
-    clientSearchPage.searchAndSelectFirstClient("tcs");
+    clientSearchPage.searchAndSelectFirstClient("Thoughtworks");
     clientPage.editClientDetails("Jaggu","Mantri Woodlands , near Arakere gate");
   }
 
@@ -20,7 +20,7 @@ public class Step1PomAccountDemo extends BaseTestStep2PageObject {
   public void testAddQuotationForClient(){
     loginPage.login(propertyReader.readProperty("username"), propertyReader.readProperty("password"));
     homePage.selectClientsLink();
-    clientSearchPage.searchAndSelectFirstClient("tcs");
+    clientSearchPage.searchAndSelectFirstClient("Thoughtworks");
     clientPage.addQuotation("Mr.Raju","Nasscom Product Conclave");
   }
 }
