@@ -16,8 +16,6 @@ public class Step2AccountDemo {
 
   public RemoteWebDriver driver;
 
-
-
   @Test
   public void testEditAccount() {
     login("letslearnandshare@gmail.com", "!abcd1234");
@@ -76,7 +74,7 @@ public class Step2AccountDemo {
     driver.findElement(By.linkText("Select Client")).click();
   }
 
-  private void submit(){
+  private void submit() {
     driver.findElement(By.name("commit")).click();
   }
 }

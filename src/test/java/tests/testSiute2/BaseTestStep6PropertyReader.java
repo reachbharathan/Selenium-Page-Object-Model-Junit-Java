@@ -22,7 +22,6 @@ public class BaseTestStep6PropertyReader {
     driver = getDriver();
     driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     driver.navigate().to(propertyReader.readProperty("url"));
-
   }
 
   @After
@@ -32,7 +31,6 @@ public class BaseTestStep6PropertyReader {
   }
 
   protected WebDriver getDriver() {
-
     String browser = propertyReader.readProperty("browser");
     if (browser.equalsIgnoreCase("chrome")) return new ChromeDriver();
     if (browser.equalsIgnoreCase("firefox")) return new FirefoxDriver();
@@ -40,7 +38,6 @@ public class BaseTestStep6PropertyReader {
   }
 
   protected void selectClient(String client) {
-
     driver.findElement(By.linkText("CLIENTS")).click();
     driver.findElement(By.id("search")).sendKeys(client);
     driver.findElement(By.className("searchBtn")).click();

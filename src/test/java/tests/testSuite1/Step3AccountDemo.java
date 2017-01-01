@@ -2,7 +2,6 @@ package tests.testSuite1;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import tests.testSuite1.BaseTestStep1Simple;
 
 public class Step3AccountDemo extends BaseTestStep1Simple {
   //separate the common to base step
@@ -10,7 +9,7 @@ public class Step3AccountDemo extends BaseTestStep1Simple {
 
   @Test
   public void testEditAccount() {
-    login("letslearnandshare@gmail.com","!abcd1234");
+    login("letslearnandshare@gmail.com", "!abcd1234");
     selectClient("Thoughtworks");
     driver.findElement(By.linkText("Edit Client Details")).click();
     driver.findElement(By.id("client_contact_person_name")).clear();
@@ -23,7 +22,7 @@ public class Step3AccountDemo extends BaseTestStep1Simple {
 
   @Test
   public void testAddQuotationForClient() {
-    login("letslearnandshare@gmail.com","!abcd1234");
+    login("letslearnandshare@gmail.com", "!abcd1234");
     selectClient("Thoughtworks");
     driver.findElement(By.linkText("Quotations")).click();
     driver.findElement(By.partialLinkText("Add New Quotation")).click();
@@ -52,7 +51,7 @@ public class Step3AccountDemo extends BaseTestStep1Simple {
     driver.findElement(By.linkText("Select Client")).click();
   }
 
-  private void submit(){
+  private void submit() {
     driver.findElement(By.name("commit")).click();
   }
 }

@@ -2,10 +2,8 @@ package tests.testSuite1;
 
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import pages.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 
