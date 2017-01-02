@@ -3,8 +3,9 @@ package util;
 import org.openqa.selenium.WebDriver;
 
 public class DriverFactory {
+  /**/
 
-  static WebDriver driver;
+  private static WebDriver driver;
 
   public static WebDriver getDriver() {
     return driver;

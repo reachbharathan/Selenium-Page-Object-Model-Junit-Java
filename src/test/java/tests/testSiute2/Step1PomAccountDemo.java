@@ -23,6 +23,6 @@ public class Step1PomAccountDemo extends BaseTestStep4 {
     loginPage.login(propertyReader.readProperty("username"), propertyReader.readProperty("password"));
     homePage.selectClientsLink();
     clientSearchPage.searchAndSelectFirstClient("Thoughtworks");
-    clientPage.addQuotation("Quotation1", "Event1", "01-3-2017");
+    clientPage.addQuotation("Quotation1", "Event1", "01-30-2017");
   }
 }
