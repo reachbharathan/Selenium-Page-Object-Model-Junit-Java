@@ -1,10 +1,15 @@
 package tests.testSiute2;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.runner.Description;
+import org.junit.runner.Result;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,8 +20,9 @@ import pages.ClientsSearchPage;
 import pages.HomePage;
 import pages.LoginPage;
 import util.PropertyReader;
-import util.ScreenShotRule;
+import util.JunitListener;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -27,7 +33,7 @@ public class BaseTestStep4 {
   public static PropertyReader propertyReader;
   private static Logger LOGGER = null;
   @Rule
-  public ScreenShotRule screenShotRule;
+  public JunitListener junitListener;
   public WebDriver driver;
   public LoginPage loginPage;
   public HomePage homePage;
@@ -35,7 +41,7 @@ public class BaseTestStep4 {
   public ClientsSearchPage clientSearchPage;
 
   public BaseTestStep4() {
-    screenShotRule = new ScreenShotRule();
+    junitListener = new JunitListener();
     propertyReader = new PropertyReader();
     LOGGER = LogManager.getLogger(BaseTestStep4.class);
     LOGGER.info("BaseTestStep4 completed");
@@ -43,8 +49,9 @@ public class BaseTestStep4 {
 
   @Before
   public void setUp() {
+    LOGGER.info("SetUp");
     setDriver();
-    screenShotRule.setDriver(driver);
+    junitListener.setDriver(driver);
     loginPage = new LoginPage(driver);
     homePage = new HomePage(driver);
     clientPage = new ClientPage(driver);
@@ -54,8 +61,7 @@ public class BaseTestStep4 {
 
   @After
   public void tearDown() {
-    driver.close();
-    driver.quit();
+    LOGGER.info("TearDown");
   }
 
   public void setDriver() {
@@ -86,7 +92,7 @@ public class BaseTestStep4 {
       connection = (HttpURLConnection) baseUrl.openConnection();
       connection.connect();
       if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-        LOGGER.error("Unable to make url connection");
+        LOGGER.error("Unable to connect to the url connection");
         LOGGER.error("Response Code " + connection.getResponseCode());
         LOGGER.error("Response Message " + connection.getResponseMessage());
       }

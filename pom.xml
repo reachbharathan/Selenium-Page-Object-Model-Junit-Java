@@ -13,14 +13,8 @@
                 <version>2.16</version>
                 <configuration>
                     <includes>
-                        <include>*TestSuite.class</include>
+                        <include>*Suite.class</include>
                     </includes>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>util.ExecutionListener</value>
-                        </property>
-                    </properties>
                 </configuration>
             </plugin>
             <plugin>

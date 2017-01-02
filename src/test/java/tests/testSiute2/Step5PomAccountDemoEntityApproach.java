@@ -10,7 +10,6 @@ import tests.Smoke;
 public class Step5PomAccountDemoEntityApproach extends BaseTestStep4 {
 
   @Test
-  //Adding category
   @Category(Smoke.class)
   public void testEditAccount() {
     //creating a business object
