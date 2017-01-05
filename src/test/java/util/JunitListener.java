@@ -1,6 +1,7 @@
 package util;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.internal.runners.statements.Fail;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.OutputType;
@@ -13,16 +14,11 @@ import java.io.IOException;
 public class JunitListener extends TestWatcher {
 
   private WebDriver driver;
+  private String destinaleFolder = "target/screenshot/";
 
   @Override
   protected void failed(Throwable e, Description description) {
-    File scrFile = ( (TakesScreenshot) driver ).getScreenshotAs(OutputType.FILE);
-    String destinaleFolder = "target/screenshot/";
-    try {
-      FileUtils.copyFile(scrFile, new File(destinaleFolder + description.getMethodName() + ".png"));
-    } catch (IOException e1) {
-      e1.printStackTrace();
-    }
+    takeScreenShot(description);
     System.out.println("Test Failded " + description.getMethodName());
   }
 
@@ -39,5 +35,14 @@ public class JunitListener extends TestWatcher {
 
   public void setDriver(WebDriver driver) {
     this.driver = driver;
+  }
+
+  private void takeScreenShot(Description description) {
+    File scrFile = ( (TakesScreenshot) driver ).getScreenshotAs(OutputType.FILE);
+    try {
+      FileUtils.copyFile(scrFile, new File(destinaleFolder + description.getMethodName() + ".png"));
+    } catch (IOException e1) {
+      e1.printStackTrace();
+    }
   }
 }
