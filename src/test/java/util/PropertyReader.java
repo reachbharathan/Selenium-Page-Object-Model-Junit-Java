@@ -18,7 +18,7 @@ public class PropertyReader {
 
   private void loadProperties() {
     try {
-      inputStream = new FileInputStream("src/config.properties");
+      inputStream = new FileInputStream("src/test/resources/config.properties");
       properties.load(inputStream);
     } catch (IOException e) {
       System.out.print("Unable to load config.properties");

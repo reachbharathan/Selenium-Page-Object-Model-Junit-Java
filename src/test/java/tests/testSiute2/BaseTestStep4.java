@@ -1,4 +1,4 @@
-package tests.testSiute2;
+/**/package tests.testSiute2;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -63,6 +63,7 @@ public class BaseTestStep4 {
     long implicitWait = Integer.parseInt(propertyReader.readProperty("implicitWaitInSeconds"));
     switch (browser) {
       case "chrome":
+        System.setProperty("webdriver.chrome.driver",propertyReader.readProperty("macChromeDriver"));
         driver = new ChromeDriver();
         break;
       case "ie":
