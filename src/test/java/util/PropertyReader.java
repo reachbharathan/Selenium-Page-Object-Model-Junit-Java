@@ -7,26 +7,26 @@ import java.util.Properties;
 
 public class PropertyReader {
 
-  Properties properties;
+    Properties properties;
 
-  InputStream inputStream = null;
+    InputStream inputStream = null;
 
-  public PropertyReader() {
-    properties = new Properties();
-    loadProperties();
-  }
-
-  private void loadProperties() {
-    try {
-      inputStream = new FileInputStream("src/test/resources/config.properties");
-      properties.load(inputStream);
-    } catch (IOException e) {
-      System.out.print("Unable to load config.properties");
-      e.printStackTrace();
+    public PropertyReader() {
+        properties = new Properties();
+        loadProperties();
     }
-  }
 
-  public String readProperty(String key) {
-    return properties.getProperty(key);
-  }
+    private void loadProperties() {
+        try {
+            inputStream = new FileInputStream("src/test/resources/config.properties");
+            properties.load(inputStream);
+        } catch (IOException e) {
+            System.out.print("Unable to load config.properties");
+            e.printStackTrace();
+        }
+    }
+
+    public String readProperty(String key) {
+        return properties.getProperty(key);
+    }
 }

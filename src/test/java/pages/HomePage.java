@@ -7,15 +7,15 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
 
-  @FindBy(linkText = "CLIENTS")
-  private WebElement Clients_link;
+    @FindBy(linkText = "CLIENTS")
+    private WebElement Clients_link;
 
-  public HomePage(WebDriver webDriver) {
-    this.webDriver = webDriver;
-    PageFactory.initElements(webDriver, this);
-  }
+    public HomePage(WebDriver webDriver) {
+        this.webDriver = webDriver;
+        PageFactory.initElements(webDriver, this);
+    }
 
-  public void selectClientsLink() {
-    Clients_link.click();
-  }
+    public void selectClientsLink() {
+        Clients_link.click();
+    }
 }

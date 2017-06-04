@@ -9,19 +9,20 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTestStep1Simple {
 
-  public RemoteWebDriver driver;
+    public RemoteWebDriver driver;
 
-  @Before
-  public void setUp() {
-    driver = new ChromeDriver();
-    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-    driver.navigate().to("http://accountsdemo.herokuapp.com");
-    driver.manage().window().maximize();
-  }
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.navigate().to("http://accountsdemo.herokuapp.com");
+        driver.manage().window().maximize();
+    }
 
-  @After
-  public void tearDown() {
-    driver.close();
-    driver.quit();
-  }
+    @After
+    public void tearDown() {
+        driver.close();
+        driver.quit();
+    }
 }
