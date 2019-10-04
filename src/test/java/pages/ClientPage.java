@@ -46,7 +46,7 @@ public class ClientPage extends BasePage {
 
     public ClientPage(WebDriver webDriver) {
         this.webDriver = webDriver;
-        PageFactory.initElements(webDriver, this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(webDriver,5), this);
     }
 
     public void verifyClientDetails(ClientDetails details) {
